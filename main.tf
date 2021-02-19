@@ -21,7 +21,7 @@
         token = "85f67e09b5191ba0fcaa082ca60406865564310e07a7ec79ea62e6ef0c91102d"
     }
 
-#Provider du scaleway pour la BDD
+    #Provider du scaleway pour la BDD
     provider "scaleway" {
         access_key      = "SCWJT3FZR0YCSB1WQ3MH"
         secret_key      = "1c04574d-b953-4d36-b16c-9949d61210ec"
@@ -42,8 +42,8 @@
         name   = "pcailleau"
         domain = digitalocean_domain.ca-angers.name
         type   = "A"
-        ttl    = "330"
-        value  = "13.13.13.13"
+        ttl    = "1800"
+        value  = "192.130.251.2"
     }
     output "domain" {
         value = digitalocean_record.record.domain
@@ -83,7 +83,7 @@
 
 #Configuration du Firewall
     resource "digitalocean_firewall" "ubuntu" {
-        name = "ports 22-80-443"
+        name = "ports ouverts"
 
         droplet_ids = [digitalocean_droplet.ubuntu.id]
 
